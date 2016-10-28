@@ -18,6 +18,12 @@
 
 - (void)defaultSetLayout;
 
+
+- (void)startAutoScroll;
+
+- (void)stopAutoScroll;
+
+
 @property (nonatomic, strong, readonly) FGRCollectionViewLayout *collectionViewLayout;
 
 @property (nonatomic, strong) NSArray *colors;

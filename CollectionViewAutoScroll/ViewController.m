@@ -45,6 +45,8 @@
 {
     [super viewDidAppear:animated];
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.dataSource.colors.count inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
+    
+    [self.dataSource startAutoScroll];
 }
 
 

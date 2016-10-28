@@ -12,8 +12,14 @@
 
 #define kMultiCount 3
 
+
+@interface UIScrollView(FGRShow)
+@property (nonatomic, assign) CGFloat showCenterX;
+@end
+
 @interface FGRCollectionViewDataSource()
 @property (nonatomic, weak) UICollectionView *collectionView;
+@property (nonatomic, strong) NSTimer *timer;
 @end
 
 @implementation FGRCollectionViewDataSource
@@ -58,6 +64,29 @@
     return _collectionViewLayout;
 }
 
+- (void)startAutoScroll
+{
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
+    }
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1. target:self selector:@selector(timeFir:) userInfo:nil repeats:YES];
+}
+
+- (void)timeFir:(NSTimer *)time
+{
+    CGPoint pos = [self.collectionViewLayout contentOffsetWithCellMove:1];
+    [self.collectionView setContentOffset:pos animated:YES];
+}
+
+- (void)stopAutoScroll
+{
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
+    }
+}
+
 #pragma mark -
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -85,7 +114,7 @@
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    CGFloat centerX = scrollView.contentOffset.x + scrollView.bounds.size.width * 0.5;
+    CGFloat centerX = scrollView.showCenterX;
     CGFloat offsetX = [self scrollView:scrollView targetContentOffsetXWithProposedCenterX:centerX];
     [scrollView setContentOffset:CGPointMake(offsetX, scrollView.contentOffset.y) animated:NO];
     scrollView.userInteractionEnabled = YES;
@@ -93,7 +122,7 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    CGFloat centerX = scrollView.contentOffset.x + scrollView.bounds.size.width * 0.5;
+    CGFloat centerX = scrollView.showCenterX;
     CGFloat offsetX = [self scrollView:scrollView targetContentOffsetXWithProposedCenterX:centerX];
     
     [scrollView setContentOffset:CGPointMake(offsetX, scrollView.contentOffset.y) animated:NO];
@@ -114,7 +143,15 @@
 @end
 
 
+@implementation UIScrollView(FGRShow)
+@dynamic showCenterX;
 
+- (CGFloat)showCenterX
+{
+    return self.contentOffset.x + self.bounds.size.width * 0.5;
+}
+
+@end
 
 
 
