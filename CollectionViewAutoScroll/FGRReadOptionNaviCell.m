@@ -21,4 +21,10 @@
     // Configure the view for the selected state
 }
 
+- (void)setItem:(FGRReadOptionItem *)item
+{
+    _item = item;
+    self.lblTitle.text = item.name;
+}
+
 @end
