@@ -15,13 +15,6 @@
     // Initialization code
 }
 
-- (UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
-{
-    UICollectionViewLayoutAttributes *attri = [super preferredLayoutAttributesFittingAttributes:layoutAttributes];
-    CGRect frame = attri.frame;
-    frame.origin.y = 0;
-    attri.frame = frame; 
-    return attri;
-}
+
 
 @end

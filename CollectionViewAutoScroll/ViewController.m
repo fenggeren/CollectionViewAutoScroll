@@ -10,12 +10,17 @@
 #import "FGRCollectionViewLayout.h"
 #import "FGRCollectionViewCell.h"
 #import "FGRCollectionViewDataSource.h"
+#import "MenuDemoViewController.h"
+
+
 #define kMultiCount 3
 
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) FGRCollectionViewDataSource  *dataSource;
+
+
 
 @end
 
@@ -26,6 +31,12 @@
     
     self.dataSource = [[FGRCollectionViewDataSource alloc] init];
     [self.dataSource configCollectionView:self.collectionView];
+    
+    __weak __typeof(self)weakSelf = self;
+    [self.dataSource setDidSelectedCell:^(NSIndexPath *indexPath) {
+        MenuDemoViewController *mvc = [[MenuDemoViewController alloc] initWithNibName:@"MenuDemoViewController" bundle:nil];
+        [weakSelf.navigationController pushViewController:mvc animated:YES];
+    }];
 }
 
 

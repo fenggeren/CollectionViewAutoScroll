@@ -70,7 +70,7 @@
         [_timer invalidate];
         _timer = nil;
     }
-    _timer = [NSTimer scheduledTimerWithTimeInterval:1. target:self selector:@selector(timeFir:) userInfo:nil repeats:YES];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:4. target:self selector:@selector(timeFir:) userInfo:nil repeats:YES];
 }
 
 - (void)timeFir:(NSTimer *)time
@@ -127,6 +127,7 @@
     
     [scrollView setContentOffset:CGPointMake(offsetX, scrollView.contentOffset.y) animated:NO];
 }
+
 
 - (CGFloat)scrollView:(UIScrollView *)scrollView targetContentOffsetXWithProposedCenterX:(CGFloat)proposedCenterX
 {
