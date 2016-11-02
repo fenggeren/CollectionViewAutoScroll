@@ -36,12 +36,15 @@
     self.navigationController.navigationBarHidden = YES;
 }
 
-//+ (instancetype)menuControllerWith:(UIView *)view
-//{
-//    FGRBottomMenuController *menu = [[self alloc] init];
-//    menu.view = view;
-//    return menu;
-//}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    if (self.bottomMenu.isShow) {
+        [self.bottomMenu dismissComplete:^{
+            [self.navigationController.view removeFromSuperview];
+            [self.navigationController removeFromParentViewController];
+        }];
+    }
+}
 
 #pragma mark - 
 
@@ -50,9 +53,9 @@
     [self.bottomMenu show];
 }
 
-- (void)dismiss
+- (void)dismissComplete:(dispatch_block_t)block
 {
-    [self.bottomMenu dismiss];
+    [self.bottomMenu dismissComplete:block];
 }
 
 #pragma mark -
@@ -104,6 +107,7 @@
             default:
                 break;
         }
+        [self.bottomMenu dismissComplete:nil];
     }
 }
 #define kBottomMenuHeight 55

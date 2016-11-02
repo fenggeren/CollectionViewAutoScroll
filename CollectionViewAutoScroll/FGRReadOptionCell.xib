@@ -27,12 +27,19 @@
                             <constraint firstAttribute="height" constant="25" id="iRW-eW-Hq6"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合适" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8S-Tu-A70">
-                        <rect key="frame" x="250" y="13" width="30" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8S-Tu-A70">
+                        <rect key="frame" x="280" y="22" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0D-oG-DkQ">
+                        <rect key="frame" x="0.0" y="42" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="TSz-dA-jfJ"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
@@ -41,7 +48,10 @@
                     <constraint firstAttribute="trailing" secondItem="44b-ZQ-Dhl" secondAttribute="trailing" constant="12" id="40b-ay-21N"/>
                     <constraint firstItem="Ogb-Of-59p" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CCb-cE-vJQ"/>
                     <constraint firstItem="N8S-Tu-A70" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CmC-Ib-SYg"/>
+                    <constraint firstItem="c0D-oG-DkQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="IEk-jP-V1x"/>
+                    <constraint firstAttribute="bottom" secondItem="c0D-oG-DkQ" secondAttribute="bottom" id="K6p-OX-m4k"/>
                     <constraint firstItem="44b-ZQ-Dhl" firstAttribute="leading" secondItem="N8S-Tu-A70" secondAttribute="trailing" constant="8" id="U8m-FM-tOy"/>
+                    <constraint firstAttribute="trailing" secondItem="c0D-oG-DkQ" secondAttribute="trailing" id="iUE-Uw-MHt"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

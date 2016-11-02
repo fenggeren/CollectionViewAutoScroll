@@ -14,6 +14,6 @@
 //+ (instancetype)menuControllerWith:(UIView *)view;
 - (void)show;
 
-- (void)dismiss;
+- (void)dismissComplete:(dispatch_block_t)block;
 
 @end

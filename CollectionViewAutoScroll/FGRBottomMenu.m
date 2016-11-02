@@ -74,7 +74,7 @@
     }
 }
 
-- (void)dismiss
+- (void)dismissComplete:(dispatch_block_t)block
 {
     if ([self.delegate respondsToSelector:@selector(dismissAnimationForBottomMenu:)]) {
         [self.delegate dismissAnimationForBottomMenu:self]();
@@ -82,11 +82,18 @@
         self.frame = [self.delegate showFrameForBottomMenu:self];
         [UIView animateWithDuration:[self.delegate showAnimationIntervalForBottomMenu:self] animations:^{
             self.frame = [self.delegate originalFrameForBottomMenu:self];
+        } completion:^(BOOL finished) {
+            if (block) {
+                block();
+            }
         }];
     }
 }
 
-
+- (BOOL)isShow
+{
+    return CGRectEqualToRect(self.frame, [self.delegate showFrameForBottomMenu:self]);
+}
 
 
 @end

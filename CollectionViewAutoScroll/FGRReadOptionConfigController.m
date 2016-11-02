@@ -10,8 +10,12 @@
 #import "FGRReadOptionItem.h"
 #import "FGRReadOptionCell.h"
 #import "FGRReadOptionNaviCell.h"
+#import "FGROptionManager.h"
+#import "FGRReadOptionNaviView.h"
 @interface FGRReadOptionConfigController ()<UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, strong) UIView *containerView;
+@property (nonatomic, strong) FGRReadOptionNaviView *naviView;
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
@@ -25,50 +29,90 @@
     self.view.backgroundColor = [UIColor clearColor];
     
     UITableView *table = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    table.scrollEnabled = NO;
     table.delegate = self;
     table.dataSource = self;
     table.rowHeight = 55;
-    table.separatorInset = UIEdgeInsetsMake(-1, -20, 1, -20);
-    table.backgroundColor = [[UIColor alloc] initWithRed:0 green:0 blue:0 alpha:0.6];
-    [self.view addSubview:table];
+    table.separatorStyle = UITableViewCellSeparatorStyleNone;
+    table.backgroundColor = [UIColor clearColor];
+//    [self.view addSubview:table];
     self.tableView = table;
     [table registerNib:[UINib nibWithNibName:@"FGRReadOptionCell" bundle:nil] forCellReuseIdentifier:@"FGRReadOptionCell"];
     [table registerNib:[UINib nibWithNibName:@"FGRReadOptionNaviCell" bundle:nil] forCellReuseIdentifier:@"FGRReadOptionNaviCell"];
+    
+    FGRReadOptionNaviView *naviView = [FGRReadOptionNaviView nibView];
+    naviView.lblTitle.text = self.navTitle;
+    naviView.backgroundColor = [UIColor clearColor];
+    [naviView.btnReturn addTarget:self action:@selector(clkPopReturn) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:naviView];
+    
+    UIView *containerView = [[UIView alloc] init];
+    containerView.backgroundColor = [[UIColor alloc] initWithRed:0 green:0 blue:0 alpha:0.6];
+    [self.view addSubview:containerView];
+    
+    [containerView addSubview:naviView];
+    [containerView addSubview:table];
+    
+    self.naviView = naviView;
+    self.containerView = containerView;
 }
 
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
     
-    CGFloat height = self.group.items.count * self.tableView.rowHeight;
-    self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.view.bounds) - height, CGRectGetWidth(self.view.bounds), height);
+    CGFloat containerHeight = (self.names.count + 1) * self.tableView.rowHeight;
+    self.containerView.frame = CGRectMake(0, CGRectGetHeight(self.view.bounds) - containerHeight,
+                                          CGRectGetWidth(self.view.bounds), containerHeight);
+    self.naviView.frame = CGRectMake(0, 0, CGRectGetWidth(self.containerView.bounds),
+                                     self.tableView.rowHeight);
+    
+    CGFloat tableHeight = self.names.count * self.tableView.rowHeight;
+    self.tableView.frame = CGRectMake(0, CGRectGetMaxY(self.naviView.frame),
+                                      CGRectGetWidth(self.containerView.bounds), tableHeight);
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [UIView animateWithDuration:UINavigationControllerHideShowBarDuration animations:^{
+        CGRect frame = self.containerView.frame;
+        frame.origin = CGPointMake(0, self.view.bounds.size.height);
+        self.containerView.frame = frame;
+    } completion:^(BOOL finished) {
+        [self.navigationController.view removeFromSuperview];
+        [self.navigationController removeFromParentViewController];
+    }];
+}
+
+
+- (void)clkPopReturn
+{
+    [self.navigationController popViewControllerAnimated:NO];
+}
+
+- (void)setOptionType:(FGRReadOptionType)optionType
+{
+    _optionType = optionType;
+    self.names = [[FGROptionManager sharedInstance] keysWith:optionType];
 }
 
 #pragma mark -
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.group.items.count;
+    return self.names.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *identifier = nil;
-    if (indexPath.row == 0) {
-        identifier = @"FGRReadOptionNaviCell";
-    } else {
-        identifier = @"FGRReadOptionCell";
-    }
-    UITableViewCell<FGRReadOptionItem> *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    cell.item = self.group.items[indexPath.row];
+    FGRReadOptionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FGRReadOptionCell" forIndexPath:indexPath];
+    cell.lblName.text = self.names[indexPath.row];
+    
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-        return;
-    }
+    
 }
 
 

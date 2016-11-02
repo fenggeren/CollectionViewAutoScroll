@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) FGRCollectionViewDataSource  *dataSource;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblFont;
 
 
 @end
@@ -29,6 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     self.dataSource = [[FGRCollectionViewDataSource alloc] init];
     [self.dataSource configCollectionView:self.collectionView];
     
@@ -37,6 +40,12 @@
         MenuDemoViewController *mvc = [[MenuDemoViewController alloc] initWithNibName:@"MenuDemoViewController" bundle:nil];
         [weakSelf.navigationController pushViewController:mvc animated:YES];
     }];
+    
+    // Yuppy SC  Wawati SC
+    self.lblFont.font = [UIFont fontWithName:@"HanziPen TC" size:50];
+    
+    NSArray *names = [UIFont familyNames];
+    NSLog(@"%@", names);
 }
 
 

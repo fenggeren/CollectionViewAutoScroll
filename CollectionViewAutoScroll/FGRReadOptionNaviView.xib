@@ -27,20 +27,30 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="def-rJ-5cZ">
+                    <rect key="frame" x="0.0" y="54" width="320" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="TgZ-QK-guu"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="def-rJ-5cZ" secondAttribute="bottom" id="1gg-X9-hiy"/>
+                <constraint firstItem="def-rJ-5cZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AiM-D9-lnf"/>
                 <constraint firstItem="m2A-5f-b3i" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Ozd-8b-l7n"/>
                 <constraint firstItem="ZUa-qZ-Sa9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gFU-XG-u5I"/>
                 <constraint firstItem="m2A-5f-b3i" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="pUO-Vp-LOA"/>
                 <constraint firstItem="ZUa-qZ-Sa9" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="u7T-2W-Bah"/>
+                <constraint firstAttribute="trailing" secondItem="def-rJ-5cZ" secondAttribute="trailing" id="uqN-qq-QxW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="btnReturn" destination="m2A-5f-b3i" id="7BU-xf-HaZ"/>
                 <outlet property="lblTitle" destination="ZUa-qZ-Sa9" id="DcD-Rp-JjN"/>
             </connections>
-            <point key="canvasLocation" x="536" y="224"/>
+            <point key="canvasLocation" x="76" y="112.5"/>
         </view>
     </objects>
 </document>

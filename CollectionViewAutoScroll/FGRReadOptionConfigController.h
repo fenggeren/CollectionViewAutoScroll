@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-@class FGRReadOptionGroup;
+#import "FGRReadOptionItem.h"
 
 @interface FGRReadOptionConfigController : UIViewController
 
-@property (nonatomic, strong) FGRReadOptionGroup *group;
+@property (nonatomic, strong) NSArray<NSString *> *names;
 
+@property (nonatomic, assign) FGRReadOptionType optionType;
+
+@property (nonatomic, copy) NSString *navTitle;
 @end

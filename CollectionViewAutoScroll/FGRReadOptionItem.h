@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, FGRReadOptionType) {
+    FGRReadOptionTypeFontSize,
     FGRReadOptionTypeLineSpace,
     FGRReadOptionTypeFlipStyle,
-    FGRReadOptionTypeFont,
+    FGRReadOptionTypeFontStyle,
+    FGRReadOptionTypeLanguage,
 };
 
 @class FGRReadOptionItem;
@@ -29,12 +31,14 @@ typedef NS_ENUM(NSUInteger, FGRReadOptionType) {
 @property (nonatomic, copy) NSString *iconName;
 @property (nonatomic, copy) NSString *info;
 
+@property (nonatomic, strong) id value;
 @end
 
 
 @interface FGRReadOptionGroup : NSObject
 @property (nonatomic, strong) NSArray<FGRReadOptionItem *> *items;
 @property (nonatomic, assign) NSInteger selectIndex;
+@property (nonatomic, assign) FGRReadOptionType optionType;
 @end
 
 

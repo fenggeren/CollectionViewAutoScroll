@@ -9,7 +9,7 @@
 #import "MenuDemoViewController.h"
 #import "FGRBottomMenu.h"
 #import "FGRBottomMenuController.h"
-
+#import "FGRReadOptionNavigationController.h"
 @interface MenuDemoViewController () <FGRBottomMenuProtocol>
 @property (nonatomic, strong) FGRBottomMenu *bottomMenu;
 @end
@@ -34,7 +34,7 @@
 - (void)menu:(UIBarButtonItem *)item
 {
     FGRBottomMenuController *menuVC = [FGRBottomMenuController bottomMenuController];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:menuVC];
+    FGRReadOptionNavigationController *nav = [[FGRReadOptionNavigationController alloc] initWithRootViewController:menuVC];
     [self addChildViewController:nav];
     nav.view.frame = self.view.bounds;
     [self.view addSubview:nav.view];

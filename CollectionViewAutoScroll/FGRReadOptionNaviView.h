@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface FGRReadOptionNaviView : UIView
+
++ (instancetype)nibView;
+
 @property (weak, nonatomic) IBOutlet UIButton *btnReturn;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
+
 @end

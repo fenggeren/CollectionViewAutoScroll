@@ -25,8 +25,10 @@
 
 @interface FGRBottomMenu : UIView
 
+- (BOOL)isShow;
+
 - (void)show;
-- (void)dismiss;
+- (void)dismissComplete:(dispatch_block_t)block;
 
 @property (nonatomic, weak) id<FGRBottomMenuProtocol> delegate;
 
