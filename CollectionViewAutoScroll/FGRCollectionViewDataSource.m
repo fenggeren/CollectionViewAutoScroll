@@ -128,6 +128,15 @@
     [scrollView setContentOffset:CGPointMake(offsetX, scrollView.contentOffset.y) animated:NO];
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self stopAutoScroll];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [self startAutoScroll];
+}
 
 - (CGFloat)scrollView:(UIScrollView *)scrollView targetContentOffsetXWithProposedCenterX:(CGFloat)proposedCenterX
 {

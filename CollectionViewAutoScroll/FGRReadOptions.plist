@@ -36,16 +36,12 @@
 		<key>values</key>
 		<array>
 			<string>nil</string>
-			<string>Wawati</string>
-			<string>HanziPen</string>
 			<string>YuppySC</string>
 			<string>STXINWEI</string>
 		</array>
 		<key>keys</key>
 		<array>
 			<string>系统默认</string>
-			<string>娃娃体</string>
-			<string>翩翩体</string>
 			<string>雅痞</string>
 			<string>新魏</string>
 		</array>

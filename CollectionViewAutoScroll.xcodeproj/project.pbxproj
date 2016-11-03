@@ -38,13 +38,10 @@
 		1F4978D91DC89BAF00E29004 /* FGRReadOptionNaviView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4978D81DC89BAF00E29004 /* FGRReadOptionNaviView.xib */; };
 		1F4978DB1DC98EC800E29004 /* FGRReadOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F4978DA1DC98EC800E29004 /* FGRReadOptions.plist */; };
 		1F4978DE1DC9976C00E29004 /* STXINWEI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F4978DD1DC9976C00E29004 /* STXINWEI.ttf */; };
-		1F4978E81DC99C0700E29004 /* WeibeiSC-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1F4978E71DC99C0700E29004 /* WeibeiSC-Bold.otf */; };
-		1F4978EA1DC99C4500E29004 /* Hannotate.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 1F4978E91DC99C4500E29004 /* Hannotate.ttc */; };
 		1F4978EE1DC99CE600E29004 /* YuppySC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1F4978ED1DC99CE600E29004 /* YuppySC-Regular.otf */; };
-		1F4978F01DC99E8B00E29004 /* WawaSC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1F4978EF1DC99E8B00E29004 /* WawaSC-Regular.otf */; };
-		1F4978F21DC9A6A800E29004 /* Hanzipen.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 1F4978F11DC9A6A800E29004 /* Hanzipen.ttc */; };
 		1F4978F51DC9AACF00E29004 /* FGROptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4978F41DC9AACF00E29004 /* FGROptionManager.m */; };
 		1F4978F91DC9E2E800E29004 /* FGRReadOptionNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4978F81DC9E2E800E29004 /* FGRReadOptionNavigationController.m */; };
+		1F4978FC1DCADB0000E29004 /* FGRReadOptionFontSizeSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4978FB1DCADB0000E29004 /* FGRReadOptionFontSizeSlider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,15 +114,13 @@
 		1F4978D81DC89BAF00E29004 /* FGRReadOptionNaviView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FGRReadOptionNaviView.xib; sourceTree = "<group>"; };
 		1F4978DA1DC98EC800E29004 /* FGRReadOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FGRReadOptions.plist; sourceTree = "<group>"; };
 		1F4978DD1DC9976C00E29004 /* STXINWEI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STXINWEI.ttf; sourceTree = "<group>"; };
-		1F4978E71DC99C0700E29004 /* WeibeiSC-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WeibeiSC-Bold.otf"; sourceTree = "<group>"; };
-		1F4978E91DC99C4500E29004 /* Hannotate.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hannotate.ttc; sourceTree = "<group>"; };
 		1F4978ED1DC99CE600E29004 /* YuppySC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YuppySC-Regular.otf"; sourceTree = "<group>"; };
-		1F4978EF1DC99E8B00E29004 /* WawaSC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WawaSC-Regular.otf"; sourceTree = "<group>"; };
-		1F4978F11DC9A6A800E29004 /* Hanzipen.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hanzipen.ttc; sourceTree = "<group>"; };
 		1F4978F31DC9AACF00E29004 /* FGROptionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGROptionManager.h; sourceTree = "<group>"; };
 		1F4978F41DC9AACF00E29004 /* FGROptionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGROptionManager.m; sourceTree = "<group>"; };
 		1F4978F71DC9E2E800E29004 /* FGRReadOptionNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGRReadOptionNavigationController.h; sourceTree = "<group>"; };
 		1F4978F81DC9E2E800E29004 /* FGRReadOptionNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGRReadOptionNavigationController.m; sourceTree = "<group>"; };
+		1F4978FA1DCADB0000E29004 /* FGRReadOptionFontSizeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGRReadOptionFontSizeSlider.h; sourceTree = "<group>"; };
+		1F4978FB1DCADB0000E29004 /* FGRReadOptionFontSizeSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGRReadOptionFontSizeSlider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +261,8 @@
 		1F4978CF1DC8900600E29004 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				1F4978FA1DCADB0000E29004 /* FGRReadOptionFontSizeSlider.h */,
+				1F4978FB1DCADB0000E29004 /* FGRReadOptionFontSizeSlider.m */,
 				1F4978BB1DC8873E00E29004 /* FGRReadOptionFontSizeCell.h */,
 				1F4978BC1DC8873E00E29004 /* FGRReadOptionFontSizeCell.m */,
 				1F4978BD1DC8873E00E29004 /* FGRReadOptionFontSizeCell.xib */,
@@ -298,11 +295,7 @@
 		1F4978DC1DC9976100E29004 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				1F4978EF1DC99E8B00E29004 /* WawaSC-Regular.otf */,
 				1F4978ED1DC99CE600E29004 /* YuppySC-Regular.otf */,
-				1F4978E91DC99C4500E29004 /* Hannotate.ttc */,
-				1F4978F11DC9A6A800E29004 /* Hanzipen.ttc */,
-				1F4978E71DC99C0700E29004 /* WeibeiSC-Bold.otf */,
 				1F4978DD1DC9976C00E29004 /* STXINWEI.ttf */,
 			);
 			name = Resource;
@@ -413,16 +406,12 @@
 			files = (
 				1F4978691DC2F4A500E29004 /* LaunchScreen.storyboard in Resources */,
 				1F4978AD1DC8723500E29004 /* FGRReadOptionViewController.xib in Resources */,
-				1F4978F21DC9A6A800E29004 /* Hanzipen.ttc in Resources */,
-				1F4978EA1DC99C4500E29004 /* Hannotate.ttc in Resources */,
 				1F4978C41DC88B0500E29004 /* FGRReadOptionConfigController.xib in Resources */,
-				1F4978E81DC99C0700E29004 /* WeibeiSC-Bold.otf in Resources */,
 				1F4978661DC2F4A500E29004 /* Assets.xcassets in Resources */,
 				1F4978EE1DC99CE600E29004 /* YuppySC-Regular.otf in Resources */,
 				1F4978D91DC89BAF00E29004 /* FGRReadOptionNaviView.xib in Resources */,
 				1F4978B21DC8734600E29004 /* FGRReadOptionCell.xib in Resources */,
 				1F4978BF1DC8873E00E29004 /* FGRReadOptionFontSizeCell.xib in Resources */,
-				1F4978F01DC99E8B00E29004 /* WawaSC-Regular.otf in Resources */,
 				1F4978CE1DC88FEC00E29004 /* FGRReadOptionNaviCell.xib in Resources */,
 				1F4978DB1DC98EC800E29004 /* FGRReadOptions.plist in Resources */,
 				1F4978A31DC8354100E29004 /* MenuDemoViewController.xib in Resources */,
@@ -470,6 +459,7 @@
 				1F4978F51DC9AACF00E29004 /* FGROptionManager.m in Sources */,
 				1F4978C31DC88B0500E29004 /* FGRReadOptionConfigController.m in Sources */,
 				1F49789A1DC32E5300E29004 /* FGRCollectionViewDataSource.m in Sources */,
+				1F4978FC1DCADB0000E29004 /* FGRReadOptionFontSizeSlider.m in Sources */,
 				1F4978D71DC89B9C00E29004 /* FGRReadOptionNaviView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

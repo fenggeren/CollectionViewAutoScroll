@@ -10,7 +10,7 @@
 #import "FGRBottomMenu.h"
 #import "FGRReadOptionViewController.h"
 
-@interface FGRBottomMenuController () <FGRBottomMenuProtocol>
+@interface FGRBottomMenuController () <FGRBottomMenuProtocol, UIGestureRecognizerDelegate>
 @property (nonatomic, strong) FGRBottomMenu *bottomMenu;
 @end
 
@@ -71,12 +71,16 @@
         l.font = [UIFont systemFontOfSize:20];
         l.textColor = [UIColor whiteColor];
         l.textAlignment = NSTextAlignmentCenter;
-        [l addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickBottomMenuItem:)]];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickBottomMenuItem:)];
+        tap.delegate = self;
+        tap.cancelsTouchesInView = YES;
+        [l addGestureRecognizer:tap];
         return l;
     };
     return @[labelBlock(@"目录", 0), labelBlock(@"进度", 1),
              labelBlock(@"选项", 2), labelBlock(@"显示", 3)];
 }
+
 
 
 - (void)clickBottomMenuItem:(UITapGestureRecognizer *)tap

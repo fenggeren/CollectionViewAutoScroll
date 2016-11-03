@@ -34,7 +34,6 @@
     table.rowHeight = 55;
     table.separatorStyle = UITableViewCellSeparatorStyleNone;
     table.backgroundColor = [UIColor clearColor];
-//    [self.view addSubview:table];
     self.tableView = table;
     [table registerNib:[UINib nibWithNibName:@"FGRReadOptionCell" bundle:nil] forCellReuseIdentifier:@"FGRReadOptionCell"];
     [table registerNib:[UINib nibWithNibName:@"FGRReadOptionNaviCell" bundle:nil] forCellReuseIdentifier:@"FGRReadOptionNaviCell"];
@@ -43,7 +42,6 @@
     naviView.lblTitle.text = self.navTitle;
     naviView.backgroundColor = [UIColor clearColor];
     [naviView.btnReturn addTarget:self action:@selector(clkPopReturn) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:naviView];
     
     UIView *containerView = [[UIView alloc] init];
     containerView.backgroundColor = [[UIColor alloc] initWithRed:0 green:0 blue:0 alpha:0.6];

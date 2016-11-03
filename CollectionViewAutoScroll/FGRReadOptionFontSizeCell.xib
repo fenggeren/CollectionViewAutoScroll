@@ -15,21 +15,27 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82A-M0-0hx">
-                        <rect key="frame" x="12" y="2" width="30" height="40"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                        <rect key="frame" x="12" y="0.0" width="30" height="44"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
                         <state key="normal" title="A-">
                             <color key="titleColor" white="0.95999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="clkMiner:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="imL-Yz-os8"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mrb-JX-dWE">
-                        <rect key="frame" x="278" y="2" width="30" height="40"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                        <state key="normal" title="A-">
+                        <rect key="frame" x="275" y="0.0" width="33" height="44"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                        <state key="normal" title="A+">
                             <color key="titleColor" white="0.95999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="clkMaxer:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xir-yF-AV1"/>
+                        </connections>
                     </button>
                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="14n-IB-38b">
-                        <rect key="frame" x="48" y="7" width="224" height="31"/>
+                        <rect key="frame" x="48" y="7" width="221" height="31"/>
                         <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </slider>
@@ -61,6 +67,7 @@
                 <outlet property="btnMiner" destination="82A-M0-0hx" id="aqc-M9-S0a"/>
                 <outlet property="sldFontSize" destination="14n-IB-38b" id="6JG-sA-fV1"/>
             </connections>
+            <point key="canvasLocation" x="445" y="217"/>
         </tableViewCell>
     </objects>
 </document>
