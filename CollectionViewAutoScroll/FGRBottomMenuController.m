@@ -125,7 +125,7 @@
 }
 - (NSTimeInterval)showAnimationIntervalForBottomMenu:(FGRBottomMenu *)bottomMenu
 {
-    return .5;
+    return UINavigationControllerHideShowBarDuration;
 }
 
 
