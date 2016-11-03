@@ -28,6 +28,9 @@
 @property (nonatomic, assign) NSInteger fontStyleIndex;
 @property (nonatomic, assign) NSInteger languagesIndex;
 
+- (void)setSelectIndex:(NSInteger)selectIndex forType:(FGRReadOptionType)type;
 - (NSInteger)selectIndexWith:(FGRReadOptionType)type;
 - (NSArray *)keysWith:(FGRReadOptionType)type;
+
+- (NSString *)valueForSelectIndexWithType:(FGRReadOptionType)type;
 @end

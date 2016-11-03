@@ -8,6 +8,7 @@
     <customFonts key="customFonts">
         <mutableArray key="Hanzipen.ttc">
             <string>HanziPenSC-W5</string>
+            <string>HanziPenSC-W5</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -58,12 +59,21 @@
                                     <constraint firstAttribute="width" constant="5" id="0Th-RB-Zxw"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="测试新字体" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwy-NZ-Iwb">
-                                <rect key="frame" x="34" y="418" width="253" height="100"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="测试新字体" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwy-NZ-Iwb">
+                                <rect key="frame" x="70" y="518" width="180" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Lct-ou-aoc"/>
+                                    <constraint firstAttribute="height" constant="50" id="Lct-ou-aoc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HanziPenSC-W5" family="HanziPen SC" pointSize="8"/>
+                                <fontDescription key="fontDescription" name="HanziPenSC-W5" family="HanziPen SC" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="测试新字体" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czc-hZ-Jjt">
+                                <rect key="frame" x="70" y="412" width="180" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9Ja-Sb-Qbc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HanziPenSC-W5" family="HanziPen SC" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -72,12 +82,15 @@
                         <constraints>
                             <constraint firstItem="c69-Rg-ikt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0R9-Vy-QUo"/>
                             <constraint firstItem="6Aa-bY-PIe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="1t5-g6-cym"/>
+                            <constraint firstItem="Czc-hZ-Jjt" firstAttribute="leading" secondItem="jwy-NZ-Iwb" secondAttribute="leading" id="7ia-YV-q7W"/>
+                            <constraint firstItem="jwy-NZ-Iwb" firstAttribute="top" secondItem="Czc-hZ-Jjt" secondAttribute="bottom" constant="56" id="Hse-x1-rdw"/>
                             <constraint firstItem="6Aa-bY-PIe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KJb-Fx-0cK"/>
                             <constraint firstItem="c69-Rg-ikt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="75" id="OEm-DO-WlN"/>
                             <constraint firstItem="c69-Rg-ikt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="150" id="Piq-CP-EUQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6Aa-bY-PIe" secondAttribute="bottom" id="aVs-pX-WS1"/>
                             <constraint firstItem="jwy-NZ-Iwb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bkE-06-yMg"/>
-                            <constraint firstAttribute="bottom" secondItem="jwy-NZ-Iwb" secondAttribute="bottom" constant="50" id="hdC-gL-a6w"/>
+                            <constraint firstAttribute="bottom" secondItem="jwy-NZ-Iwb" secondAttribute="bottom" id="hdC-gL-a6w"/>
+                            <constraint firstItem="Czc-hZ-Jjt" firstAttribute="trailing" secondItem="jwy-NZ-Iwb" secondAttribute="trailing" id="ke8-jd-gKc"/>
                             <constraint firstAttribute="trailing" secondItem="c69-Rg-ikt" secondAttribute="trailing" id="yuv-c0-s6N"/>
                         </constraints>
                         <variation key="default">
@@ -91,6 +104,7 @@
                     <connections>
                         <outlet property="collectionView" destination="c69-Rg-ikt" id="f61-hL-BmI"/>
                         <outlet property="lblFont" destination="jwy-NZ-Iwb" id="xw0-gO-ZTb"/>
+                        <outlet property="lblFont2" destination="Czc-hZ-Jjt" id="Pz1-d1-H2g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

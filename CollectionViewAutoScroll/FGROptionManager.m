@@ -116,6 +116,27 @@
     }
 }
 
+- (void)setSelectIndex:(NSInteger)selectIndex forType:(FGRReadOptionType)type
+{
+    switch (type) {
+        case FGRReadOptionTypeFontSize:
+            self.fontSizeIndex = selectIndex;
+            break;
+        case FGRReadOptionTypeLanguage:
+            self.languagesIndex = selectIndex;
+            break;
+        case FGRReadOptionTypeFlipStyle:
+            self.flipStyleIndex = selectIndex;
+            break;
+        case FGRReadOptionTypeFontStyle:
+            self.fontStyleIndex = selectIndex;
+            break;
+        case FGRReadOptionTypeLineSpace:
+            self.lineSpaceIndex = selectIndex;
+            break;
+    }
+}
+
 - (NSInteger)selectIndexWith:(FGRReadOptionType)type
 {
     switch (type) {
@@ -136,18 +157,33 @@
 {
     switch (type) {
         case FGRReadOptionTypeLineSpace:
-            return [FGROptionManager sharedInstance].lineSpaceNames;
+            return self.lineSpaceNames;
         case FGRReadOptionTypeFontStyle:
-            return [FGROptionManager sharedInstance].fontStyleNames;
+            return self.fontStyleNames;
         case FGRReadOptionTypeFlipStyle:
-            return [FGROptionManager sharedInstance].flipStyles;
+            return self.flipStyles;
         case FGRReadOptionTypeLanguage:
-            return [FGROptionManager sharedInstance].languages;
+            return self.languages;
         case FGRReadOptionTypeFontSize:
-            return [FGROptionManager sharedInstance].fontSizes;
+            return self.fontSizes;
     }
 }
 
+- (NSString *)valueForSelectIndexWithType:(FGRReadOptionType)type
+{
+    switch (type) {
+        case FGRReadOptionTypeLineSpace:
+            return self.lineSpaceNames[self.lineSpaceIndex];
+        case FGRReadOptionTypeFontStyle:
+            return self.fontStyleNames[self.fontStyleIndex];
+        case FGRReadOptionTypeFlipStyle:
+            return self.flipStyles[self.flipStyleIndex];
+        case FGRReadOptionTypeLanguage:
+            return self.languages[self.languagesIndex];
+        case FGRReadOptionTypeFontSize:
+            return self.fontSizes[self.fontSizeIndex].description;
+    }
+}
 @end
 
 

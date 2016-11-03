@@ -33,15 +33,13 @@
 }
 
 - (void)configItems
-{
-    FGROptionManager *mg = [FGROptionManager sharedInstance];
-    
+{ 
     self.items = @[
-                   [FGRReadOptionItem itemWith:@"字号" iconName:nil info:mg.fontSizes[mg.fontSizeIndex].description],
-                   [FGRReadOptionItem itemWith:@"行距" iconName:nil info:mg.lineSpaceNames[mg.lineSpaceIndex]],
-                   [FGRReadOptionItem itemWith:@"翻页样式" iconName:nil info:mg.flipStyles[mg.flipStyleIndex]],
-                   [FGRReadOptionItem itemWith:@"字体" iconName:nil info:mg.fontStyleNames[mg.fontStyleIndex]],
-                   [FGRReadOptionItem itemWith:@"繁简切换" iconName:nil info:mg.languages[mg.languagesIndex]]];
+                   [FGRReadOptionItem itemWith:@"字号" iconName:nil optionType:FGRReadOptionTypeFontSize],
+                   [FGRReadOptionItem itemWith:@"行距" iconName:nil optionType:FGRReadOptionTypeLineSpace],
+                   [FGRReadOptionItem itemWith:@"翻页样式" iconName:nil optionType:FGRReadOptionTypeFlipStyle],
+                   [FGRReadOptionItem itemWith:@"字体" iconName:nil optionType:FGRReadOptionTypeFontStyle],
+                   [FGRReadOptionItem itemWith:@"繁简切换" iconName:nil optionType:FGRReadOptionTypeLanguage]];
 }
 
 - (void)configTableView
@@ -66,6 +64,7 @@
     CGFloat height = self.items.count * self.tableView.rowHeight;
     self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.view.bounds) - height, CGRectGetWidth(self.view.bounds), height);
 }
+
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
@@ -100,13 +99,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0 || indexPath.row == self.items.count - 1) {
+    if (indexPath.row == 0) { return; }
+    if (indexPath.row == self.items.count - 1) {
+        NSInteger oldIndex = [FGROptionManager sharedInstance].languagesIndex;
+        [FGROptionManager sharedInstance].languagesIndex = !oldIndex;
+        [self.tableView reloadRowsAtIndexPaths:@[[indexPath copy]] withRowAnimation:UITableViewRowAnimationNone];
         return;
     }
     
     FGRReadOptionConfigController *config = [[FGRReadOptionConfigController alloc] initWithNibName:@"FGRReadOptionConfigController" bundle:nil];
     config.optionType = indexPath.row;
     config.navTitle = self.items[indexPath.row].name;
+    __weak __typeof(self)weakSelf = self;
+    config.returnBlock = ^{
+        [weakSelf.tableView reloadRowsAtIndexPaths:@[[indexPath copy]] withRowAnimation:UITableViewRowAnimationNone];
+    };
     [self.navigationController pushViewController:config animated:NO];
 }
 

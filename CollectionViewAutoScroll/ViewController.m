@@ -22,6 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *lblFont;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblFont2;
 
 @end
 
@@ -41,8 +42,11 @@
         [weakSelf.navigationController pushViewController:mvc animated:YES];
     }];
     
+    
     // Yuppy SC  Wawati SC
-    self.lblFont.font = [UIFont fontWithName:@"HanziPen TC" size:50];
+    self.lblFont.font = [UIFont fontWithName:@"PingFang SC" size:25];
+    
+    self.lblFont2.font = [UIFont systemFontOfSize:25];
     
     NSArray *names = [UIFont familyNames];
     NSLog(@"%@", names);

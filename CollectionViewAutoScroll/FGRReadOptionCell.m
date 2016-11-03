@@ -15,6 +15,7 @@
     [super awakeFromNib];
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.iconImage.backgroundColor = [UIColor redColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

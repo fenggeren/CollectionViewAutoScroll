@@ -7,22 +7,22 @@
 //
 
 #import "FGRReadOptionItem.h"
+#import "FGROptionManager.h"
 
 @implementation FGRReadOptionItem
 
-+ (instancetype)itemWith:(NSString *)name iconName:(NSString *)iconName info:(NSString *)info
++ (instancetype)itemWith:(NSString *)name iconName:(NSString *)iconName optionType:(FGRReadOptionType)type;
 {
     FGRReadOptionItem *item = [[self alloc] init];
     item.name = name;
     item.iconName = iconName;
-    item.info = info;
+    item.type = type;
     return item;
 }
 
-@end
-
-@implementation FGRReadOptionGroup
-
-
+- (NSString *)info
+{
+    return [[FGROptionManager sharedInstance] valueForSelectIndexWithType:self.type];
+}
 
 @end

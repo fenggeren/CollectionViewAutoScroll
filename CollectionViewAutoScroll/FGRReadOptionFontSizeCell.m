@@ -8,6 +8,8 @@
 
 #import "FGRReadOptionFontSizeCell.h"
 #import "FGRReadOptionFontSizeSlider.h"
+#import "FGRReadOptionItem.h"
+#import "FGROptionManager.h"
 
 @interface FGRReadOptionFontSizeCell ()
 @property (nonatomic, weak) FGRReadOptionFontSizeSlider *slider;
@@ -30,14 +32,21 @@
 
 - (void)updateConstraints
 {
-    
-    NSArray *constraints = @[[NSLayoutConstraint constraintWithItem:self.slider attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.btnMiner attribute:NSLayoutAttributeRight multiplier:1. constant:8],
-    [NSLayoutConstraint constraintWithItem:self.slider attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.btnMaxer attribute:NSLayoutAttributeLeft multiplier:1. constant:-8],
+    NSArray *constraints = @[[NSLayoutConstraint constraintWithItem:self.slider attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.btnMiner attribute:NSLayoutAttributeRight multiplier:1. constant:4],
+    [NSLayoutConstraint constraintWithItem:self.slider attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.btnMaxer attribute:NSLayoutAttributeLeft multiplier:1. constant:-4],
     [NSLayoutConstraint constraintWithItem:self.slider attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.btnMaxer attribute:NSLayoutAttributeHeight multiplier:1. constant:0],
       [NSLayoutConstraint constraintWithItem:self.slider attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1. constant:0]];
     [NSLayoutConstraint activateConstraints:constraints];
     
     [super updateConstraints];
+}
+
+#pragma mark - 
+
+- (void)setItem:(FGRReadOptionItem *)item
+{
+    _item = item;
+    self.slider.index = [FGROptionManager sharedInstance].fontSizeIndex;
 }
 
 - (IBAction)clkMaxer:(UIButton *)sender {

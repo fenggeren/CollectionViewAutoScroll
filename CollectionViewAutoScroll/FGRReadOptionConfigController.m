@@ -12,6 +12,8 @@
 #import "FGRReadOptionNaviCell.h"
 #import "FGROptionManager.h"
 #import "FGRReadOptionNaviView.h"
+#import "FGROptionManager.h"
+
 @interface FGRReadOptionConfigController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UIView *containerView;
@@ -80,10 +82,15 @@
         [self.navigationController removeFromParentViewController];
     }];
 }
-
+ 
+#pragma mark -
 
 - (void)clkPopReturn
 {
+    if (self.returnBlock) {
+        self.returnBlock();
+        self.returnBlock = nil;
+    }
     [self.navigationController popViewControllerAnimated:NO];
 }
 
@@ -103,14 +110,28 @@
 {
     FGRReadOptionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FGRReadOptionCell" forIndexPath:indexPath];
     cell.lblName.text = self.names[indexPath.row];
-    
-    
+    if ([[FGROptionManager sharedInstance] selectIndexWith:self.optionType] == indexPath.row) {
+        cell.iconImage.hidden = NO;
+    } else {
+        cell.iconImage.hidden = YES;
+    }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger oldIndex = [[FGROptionManager sharedInstance] selectIndexWith:self.optionType];
+    if (indexPath.row == oldIndex) {
+        return;
+    }
     
+#define kReadOptionConfigNoti @"kReadOptionConfigNoti"
+    [[NSNotificationCenter defaultCenter] postNotificationName:kReadOptionConfigNoti object:self userInfo:@{@"type": @(self.optionType), @"index": @(indexPath.row)}];
+    [[FGROptionManager sharedInstance] setSelectIndex:indexPath.row forType:self.optionType];
+    
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:oldIndex inSection:0],
+                                             [indexPath copy]]
+                          withRowAnimation:UITableViewRowAnimationNone];
 }
 
 

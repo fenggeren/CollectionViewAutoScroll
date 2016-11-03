@@ -25,20 +25,14 @@ typedef NS_ENUM(NSUInteger, FGRReadOptionType) {
 
 @interface FGRReadOptionItem : NSObject
 
-+ (instancetype)itemWith:(NSString *)name iconName:(NSString *)iconName info:(NSString *)info;
++ (instancetype)itemWith:(NSString *)name iconName:(NSString *)iconName optionType:(FGRReadOptionType)type;
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *iconName;
-@property (nonatomic, copy) NSString *info;
+@property (nonatomic, assign) FGRReadOptionType type;
 
-@property (nonatomic, strong) id value;
+@property (nonatomic, readonly) NSString *info;
+
 @end
 
-
-@interface FGRReadOptionGroup : NSObject
-@property (nonatomic, strong) NSArray<FGRReadOptionItem *> *items;
-@property (nonatomic, assign) NSInteger selectIndex;
-@property (nonatomic, assign) FGRReadOptionType optionType;
-@end
-
-
+ 

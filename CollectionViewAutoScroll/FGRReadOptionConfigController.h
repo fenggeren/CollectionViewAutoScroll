@@ -12,8 +12,10 @@
 @interface FGRReadOptionConfigController : UIViewController
 
 @property (nonatomic, strong) NSArray<NSString *> *names;
-
 @property (nonatomic, assign) FGRReadOptionType optionType;
-
 @property (nonatomic, copy) NSString *navTitle;
+
+@property (nonatomic, copy) dispatch_block_t returnBlock;
+
+
 @end

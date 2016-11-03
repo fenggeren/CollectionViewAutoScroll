@@ -15,4 +15,5 @@
 @property (weak, nonatomic) IBOutlet UISlider *sldFontSize;
 
 @property (nonatomic, strong) FGRReadOptionItem *item;
+
 @end

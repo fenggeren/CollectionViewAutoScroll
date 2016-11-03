@@ -7,6 +7,7 @@
 //
 
 #import "FGRReadOptionFontSizeSlider.h"
+#import "FGROptionManager.h"
 
 #define kMargin 2
 
@@ -102,6 +103,7 @@
         return;
     }
     _index = index;
+    [FGROptionManager sharedInstance].fontSizeIndex = index;
     self.thumbView.center = CGPointMake([self centerXForScaleIndex:index], CGRectGetMidY(self.bounds));
 }
 
